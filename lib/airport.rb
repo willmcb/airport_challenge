@@ -20,4 +20,8 @@ class Airport
     aeroplanes.include?(aeroplane)
   end
 
+  def full?
+   @aeroplanes.size <= @capacity
+  end
+
 end

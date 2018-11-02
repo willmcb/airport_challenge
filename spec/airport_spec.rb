@@ -30,4 +30,11 @@ describe Airport do
     random_capacity =(rand(40) + 1)
     expect(Airport.new(random_capacity).capacity).to eq(random_capacity)
   end
+
+  it 'can be full' do
+    random_capacity =(rand(40) + 1)
+    airport = Airport.new(random_capacity)
+    random_capacity.times { airport.allow_landing(Aeroplane.new) }
+    expect(airport.full?).to eq(true)
+  end
 end
