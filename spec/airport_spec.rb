@@ -21,4 +21,13 @@ describe Airport do
     expect(subject.plane_present?(aeroplane2)).to eq(true)
     expect(subject.plane_present?(aeroplane1)).to eq(false)
   end
+
+  it 'has a default capacity of 20 aeroplanes' do
+    expect(subject.capacity).to eq(20)
+  end
+
+  it 'has a default capacity that can be overridden' do
+    random_capacity =(rand(40) + 1)
+    expect(Airport.new(random_capacity).capacity).to eq(random_capacity)
+  end
 end
