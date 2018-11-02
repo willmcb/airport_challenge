@@ -6,7 +6,6 @@ describe AirTrafficController do
   let(:weather) { double(:weather) }
 
   before :each do
-    allow(airport1).to receive(:take_off).and_return("EZY7401")
     allow(weather).to receive(:stormy?).and_return(true)
   end
 
