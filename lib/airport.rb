@@ -5,8 +5,16 @@ class Airport
     @aeroplanes = []
   end
 
-  def land(aeroplane)
+  def allow_landing(aeroplane)
    @aeroplanes << aeroplane
+  end
+
+  def allow_take_off(aeroplane)
+    @aeroplanes.delete(aeroplane)
+  end
+
+  def plane_present?(aeroplane)
+    aeroplanes.include?(aeroplane)
   end
 
 end
