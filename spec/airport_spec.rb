@@ -5,6 +5,12 @@ describe Airport do
   let(:aeroplane1) { double(:aeroplane) }
   let(:aeroplane2) { double(:aeroplane) }
 
+  before :each do
+    allow(aeroplane1).to receive(:land)
+    allow(aeroplane2).to receive(:land)
+    allow(aeroplane1).to receive(:take_off)
+    allow(aeroplane2).to receive(:take_off)
+  end
   it 'allows an aeroplane to land' do
     subject.allow_landing(aeroplane1)
     expect(subject.aeroplanes).to include(aeroplane1)
@@ -20,6 +26,13 @@ describe Airport do
     subject.allow_landing(aeroplane2)
     expect(subject.plane_present?(aeroplane2)).to eq(true)
     expect(subject.plane_present?(aeroplane1)).to eq(false)
+  end
+
+  it 'has an id' do
+    airport1 = Airport.new
+    airport2 = Airport.new
+    expect(airport1.id).to eq(4)
+    expect(airport2.id).to eq(5)
   end
 
   it 'has a default capacity of 20 aeroplanes' do
